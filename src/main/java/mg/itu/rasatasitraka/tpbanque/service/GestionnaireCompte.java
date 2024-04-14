@@ -5,7 +5,7 @@
 package mg.itu.rasatasitraka.tpbanque.service;
 
 import jakarta.annotation.sql.DataSourceDefinition;
-import jakarta.enterprise.context.RequestScoped;
+import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
@@ -22,8 +22,8 @@ import mg.itu.rasatasitraka.tpbanque.entity.CompteBancaire;
         name = "java:app/jdbc/banque",
         serverName = "localhost",
         portNumber = 3306,
-        user = "rasata_sitraka_45", // nom et
-        password = "root", // mot de passe que vous avez donnés lors de la création de la base de données
+        user = "rasata_sitraka_45",
+        password = "root",
         databaseName = "banque",
         properties = {
             "useSSL=false",
@@ -31,7 +31,7 @@ import mg.itu.rasatasitraka.tpbanque.entity.CompteBancaire;
             "driverClass=com.mysql.cj.jdbc.Driver"
         }
 )
-@RequestScoped
+@Stateless
 public class GestionnaireCompte {
 
     @PersistenceContext(unitName = "banquePU")
@@ -45,5 +45,10 @@ public class GestionnaireCompte {
     public List<CompteBancaire> getAllComptes() {
         TypedQuery<CompteBancaire> query = em.createNamedQuery("CompteBancaire.findAll", CompteBancaire.class);
         return query.getResultList();
+    }
+
+    public long nbComptes() {
+        TypedQuery<Long> query = em.createQuery("SELECT COUNT(c) FROM CompteBancaire c", Long.class);
+        return query.getSingleResult();
     }
 }
