@@ -5,9 +5,9 @@
 package mg.itu.rasatasitraka.tpbanque.config;
 
 import jakarta.annotation.PostConstruct;
-import jakarta.ejb.EJB;
 import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
+import jakarta.inject.Inject;
 import mg.itu.rasatasitraka.tpbanque.entity.CompteBancaire;
 import mg.itu.rasatasitraka.tpbanque.service.GestionnaireCompte;
 
@@ -19,7 +19,7 @@ import mg.itu.rasatasitraka.tpbanque.service.GestionnaireCompte;
 @Startup
 public class Init {
 
-    @EJB
+    @Inject
     GestionnaireCompte gestionnaireCompte;
 
     @PostConstruct

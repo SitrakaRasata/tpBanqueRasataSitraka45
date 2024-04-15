@@ -58,7 +58,6 @@ public class TransfertArgent implements Serializable {
     }
 
     public String transferer() {
-
         boolean erreur = false;
         CompteBancaire source = compteManager.findById(idSource);
         CompteBancaire destination = compteManager.findById(idDestination);
