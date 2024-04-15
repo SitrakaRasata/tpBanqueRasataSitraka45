@@ -23,7 +23,7 @@ public class AjoutCompte {
     int solde;
 
     @Inject
-    private GestionnaireCompte compteManager;
+    private GestionnaireCompte gestionnaireCompte;
 
     /**
      * Creates a new instance of AjoutCompte
@@ -60,7 +60,7 @@ public class AjoutCompte {
             return null;
         }
 
-        compteManager.creerCompte(nouveauCompte);
+        gestionnaireCompte.creerCompte(nouveauCompte);
 
         String message = new StringBuilder()
                 .append("Compte Bancaire n°")

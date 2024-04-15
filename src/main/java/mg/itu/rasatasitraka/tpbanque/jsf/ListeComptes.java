@@ -10,6 +10,7 @@ import jakarta.inject.Inject;
 import java.io.Serializable;
 import java.util.List;
 import mg.itu.rasatasitraka.tpbanque.entity.CompteBancaire;
+import mg.itu.rasatasitraka.tpbanque.jsf.util.Util;
 import mg.itu.rasatasitraka.tpbanque.service.GestionnaireCompte;
 
 /**
@@ -23,7 +24,7 @@ public class ListeComptes implements Serializable {
     List<CompteBancaire> allComptes;
 
     @Inject
-    private GestionnaireCompte compteManager;
+    private GestionnaireCompte gestionnaireCompte;
 
     /**
      * Creates a new instance of ListeComptes
@@ -33,8 +34,14 @@ public class ListeComptes implements Serializable {
 
     public List<CompteBancaire> getAllComptes() {
         if (allComptes == null) {
-            allComptes = compteManager.getAllComptes();
+            allComptes = gestionnaireCompte.getAllComptes();
         }
         return allComptes;
+    }
+
+    public String supprimerCompte(CompteBancaire compteBancaire) {
+        gestionnaireCompte.supprimerCompte(compteBancaire);
+        Util.addFlashInfoMessage("Compte de " + compteBancaire.getNom() + " supprimé");
+        return "listeComptes?faces-redirect=true";
     }
 }

@@ -25,7 +25,7 @@ public class TransfertArgent implements Serializable {
     int montant;
 
     @Inject
-    private GestionnaireCompte compteManager;
+    private GestionnaireCompte gestionnaireCompte;
 
     /**
      * Creates a new instance of TransfertArgent
@@ -59,8 +59,8 @@ public class TransfertArgent implements Serializable {
 
     public String transferer() {
         boolean erreur = false;
-        CompteBancaire source = compteManager.findById(idSource);
-        CompteBancaire destination = compteManager.findById(idDestination);
+        CompteBancaire source = gestionnaireCompte.findById(idSource);
+        CompteBancaire destination = gestionnaireCompte.findById(idDestination);
 
         if (source == null) {
             // Message d'erreur associé au composant source ; form:source est l'id client
@@ -98,7 +98,7 @@ public class TransfertArgent implements Serializable {
 
         Util.addFlashInfoMessage(message);
 
-        compteManager.transferer(source, destination, montant);
+        gestionnaireCompte.transferer(source, destination, montant);
 
         return "listeComptes?faces-redirect=true";
     }
