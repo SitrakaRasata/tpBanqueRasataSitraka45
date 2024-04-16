@@ -81,6 +81,11 @@ public class TransfertArgent implements Serializable {
             erreur = true;
         }
 
+        if (montant <= 0) {
+            Util.messageErreur("Montant à transérer insuffisant", "Montant à transérer insuffisant", "form:montant");
+            erreur = true;
+        }
+
         if (erreur) { // en cas d'erreur, rester sur la même page
             return null;
         }
