@@ -22,7 +22,7 @@ import mg.itu.rasatasitraka.tpbanque.entity.CompteBancaire;
         name = "java:app/jdbc/banque",
         serverName = "localhost",
         portNumber = 3306,
-        user = "rasata_sitraka_45",
+        user = "sitraka_rasata_45",
         password = "root",
         databaseName = "banque",
         properties = {

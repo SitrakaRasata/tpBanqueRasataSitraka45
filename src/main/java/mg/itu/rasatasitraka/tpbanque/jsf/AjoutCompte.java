@@ -8,6 +8,7 @@ import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 import jakarta.inject.Inject;
 import mg.itu.rasatasitraka.tpbanque.entity.CompteBancaire;
+import mg.itu.rasatasitraka.tpbanque.entity.OperationBancaire;
 import mg.itu.rasatasitraka.tpbanque.jsf.util.Util;
 import mg.itu.rasatasitraka.tpbanque.service.GestionnaireCompte;
 

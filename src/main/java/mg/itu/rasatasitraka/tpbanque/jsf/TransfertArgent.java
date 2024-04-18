@@ -86,6 +86,11 @@ public class TransfertArgent implements Serializable {
             erreur = true;
         }
 
+        if (idSource == idDestination) {
+            Util.messageErreur("Impossible de transférer de l'argent à soit même", "Impossible de transférer de l'argent à soit même", "form:destination");
+            erreur = true;
+        }
+
         if (erreur) { // en cas d'erreur, rester sur la même page
             return null;
         }
