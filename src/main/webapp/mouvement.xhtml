@@ -22,8 +22,8 @@
             </ui:define>
 
             <ui:define name="content">
-                <h1>Mouvement sur le compte numéro #{mouvement.id}
-                    de #{mouvement.compte.nom}</h1>
+                <h1>Mouvement sur le compte numéro <h:outputText value="#{mouvement.id}"/>
+                    de <h:outputText value="#{mouvement.compte.nom}"/></h1>
 
                 <h:form>
                     <h:panelGrid columns="3">

@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -44,6 +45,18 @@ public class OperationBancaire implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public LocalDateTime getDateOperation() {
+        return dateOperation;
+    }
+
+    public int getMontant() {
+        return montant;
     }
 
     @Override

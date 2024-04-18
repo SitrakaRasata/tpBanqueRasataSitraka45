@@ -36,16 +36,16 @@
                             <h:outputText value="#{item.nom}"/>
                         </p:column>
 
-                        <p:column sortBy="#{item.solde}" style="text-align:right;" width="200">
+                        <p:column sortBy="#{item.solde}">
                             <f:facet name="header">
                                 <h:outputText value="Solde"/>
                             </f:facet>
-                            <h:outputText value="#{item.solde}">
+                            <h:outputText value="#{item.solde}" style="text-align: right;">
                                 <f:convertNumber pattern="###,###,##0"/>
                             </h:outputText>
                         </p:column>
 
-                        <p:column>
+                        <p:column  style="text-align: center;">
                             <f:facet name="header">
                                 <h:outputText value="Opérations"/>
                             </f:facet>
@@ -60,6 +60,16 @@
                                     <h:graphicImage name="images/edit.png"/>
                                 </h:link>
                             </button>
+                        </p:column>
+
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText escape="false" value="Historique&lt;br/>opérations"/>
+                            </f:facet>
+                            <h:link outcome="operations">
+                                <h:outputText value="Détails"/>
+                                <f:param name="id" value="#{item.id}"/>
+                            </h:link>
                         </p:column>
                     </p:dataTable>
                 </h:form>

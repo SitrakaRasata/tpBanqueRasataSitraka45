@@ -27,8 +27,11 @@ import mg.itu.rasatasitraka.tpbanque.service.GestionnaireCompte;
 public class Mouvement implements Serializable {
 
     private Long id;
+
     private CompteBancaire compte;
+
     private String typeMouvement;
+
     private int montant;
 
     @Inject
