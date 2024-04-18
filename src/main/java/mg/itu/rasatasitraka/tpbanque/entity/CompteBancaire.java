@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Version;
 import jakarta.validation.constraints.PositiveOrZero;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -34,6 +35,11 @@ public class CompteBancaire implements Serializable {
 
     @PositiveOrZero
     private int solde;
+    
+    private String nom;
+
+    @Version
+    private int version;
 
     /**
      * Get the value of solde
@@ -56,8 +62,6 @@ public class CompteBancaire implements Serializable {
     public Long getId() {
         return id;
     }
-
-    private String nom;
 
     /**
      * Get the value of nom
@@ -126,7 +130,7 @@ public class CompteBancaire implements Serializable {
         } else {
             solde = 0;
         }
-        
+
         this.operations.add(new OperationBancaire("Débit", -1 * montant));
     }
 
